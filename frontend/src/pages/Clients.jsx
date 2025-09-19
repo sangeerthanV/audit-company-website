@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-function Services() {
-  const [services, setServices] = useState([]);
+const clientsData = [
+  { name: "ABC Ltd", feedback: "Excellent audit and timely reports." },
+  { name: "XYZ PLC", feedback: "Professional and reliable service." },
+  { name: "Global Tech", feedback: "Highly recommended audit company." }
+];
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/services')
-      .then(res => setServices(res.data))
-      .catch(err => console.log(err));
-  }, []);
-
+export default function Clients() {
   return (
-    <div>
-      <h2>Our Services</h2>
-      <ul>
-        {services.map(s => <li key={s._id}>{s.title}: {s.description}</li>)}
-      </ul>
+    <div className="container">
+      <h1 className="section-title">Our Clients</h1>
+      <div className="grid">
+        {clientsData.map((c, index) => (
+          <div className="card" key={index}>
+            <h3>{c.name}</h3>
+            <p>"{c.feedback}"</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
-
-export default Services;
