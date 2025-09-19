@@ -1,20 +1,24 @@
-import React from 'react';
-
-const clientsData = [
-  { name: "ABC Ltd", feedback: "Excellent audit and timely reports." },
-  { name: "XYZ PLC", feedback: "Professional and reliable service." },
-  { name: "Global Tech", feedback: "Highly recommended audit company." }
-];
+import React, { useEffect, useState } from 'react';
+import API from '../api';
+import './Pages.css';
 
 export default function Clients() {
+  const [clients, setClients] = useState([]);
+
+  useEffect(() => {
+    API.get('/clients')
+      .then(res => setClients(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
-    <div className="container">
-      <h1 className="section-title">Our Clients</h1>
-      <div className="grid">
-        {clientsData.map((c, index) => (
-          <div className="card" key={index}>
-            <h3>{c.name}</h3>
-            <p>"{c.feedback}"</p>
+    <div className="page-container">
+      <h2 className="page-title">Our Clients</h2>
+      <div className="card-container">
+        {clients.map(client => (
+          <div className="card" key={client._id}>
+            <h3>{client.name}</h3>
+            <p>"{client.feedback}"</p>
           </div>
         ))}
       </div>

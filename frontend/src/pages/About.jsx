@@ -1,18 +1,25 @@
 import React from 'react';
+import './Pages.css';
 
 export default function About() {
   return (
-    <div className="container">
-      <h1 className="section-title">About Us</h1>
-      <p>Audit Company has been providing professional audit and financial services for over 10 years. Our team of experts ensures accuracy, compliance, and trust for all clients.</p>
-      <div className="grid">
-        <div className="card">
-          <h3>Our Vision</h3>
-          <p>To be the leading audit and advisory firm in Sri Lanka.</p>
-        </div>
+    <div className="page-container">
+      <h2 className="page-title">About Our Company</h2>
+      <p className="page-subtitle">
+        Oncode Audit Solutions is a leading audit and consulting firm in Sri Lanka. We are committed to delivering high-quality services and building lasting relationships with our clients.
+      </p>
+      <div className="about-cards">
         <div className="card">
           <h3>Our Mission</h3>
-          <p>Deliver professional, reliable, and client-focused services.</p>
+          <p>To provide transparent, reliable, and professional audit services to help businesses thrive.</p>
+        </div>
+        <div className="card">
+          <h3>Our Vision</h3>
+          <p>Be the most trusted audit partner in the region, known for excellence and integrity.</p>
+        </div>
+        <div className="card">
+          <h3>Our Values</h3>
+          <p>Integrity, professionalism, accuracy, and client satisfaction guide everything we do.</p>
         </div>
       </div>
     </div>

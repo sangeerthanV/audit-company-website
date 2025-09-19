@@ -1,4 +1,6 @@
 import React from 'react';
+import './Pages.css';
+
 
 const dashboardCards = [
   { title: "Manage Services", value: 12 },
